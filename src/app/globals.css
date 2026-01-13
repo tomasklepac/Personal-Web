@@ -450,6 +450,7 @@ section p:first-of-type {
   z-index: 1;
   background: linear-gradient(to right, #ffffff, #66fcf1);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
@@ -577,6 +578,7 @@ section p:first-of-type {
   z-index: 1;
   background: linear-gradient(to right, #ffffff, #66fcf1);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
