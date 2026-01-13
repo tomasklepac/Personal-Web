@@ -343,8 +343,28 @@ section p:first-of-type {
    ABOUT SECTION
 ========================================================== */
 .about {
-  background: transparent;
+  background-color: #0b0c10;
   padding: 120px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about::after,
+.services::after,
+.pricing::after,
+.workflow::after,
+.portfolio::after,
+.contact::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(31, 142, 241, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .about-container {
@@ -355,6 +375,8 @@ section p:first-of-type {
   gap: 60px;
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .about-text {
@@ -397,180 +419,261 @@ section p:first-of-type {
 /* ==========================================================
    SERVICES SECTION
 ========================================================== */
+/* === Modernizovaná sekce Služby === */
 .services {
-  background: transparent;
-  padding: 120px 20px;
+  padding: 100px 20px;
+  background-color: #0b0c10;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /* Pro odlesky na pozadí */
+}
+
+/* Jemná záře na pozadí */
+.services::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(102, 252, 241, 0.05) 0%, rgba(11, 12, 16, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to right, #ffffff, #66fcf1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .service-cards {
   display: flex;
   justify-content: center;
+  gap: 30px;
   flex-wrap: wrap;
-  gap: 40px;
-  max-width: 1100px;
-  margin: 60px auto 0;
-  align-items: flex-start;
-}
-
-/* === Service card === */
-.card {
-  flex: 1 1 280px;
-  max-width: 300px;
-  min-height: 360px;
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 28px 20px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-
-/* Gradient effect on hover */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: transparent;
-  opacity: 0;
-  transition: opacity 0.4s;
-  z-index: 0;
-}
-
-.card:hover::before {
-  opacity: 0.08;
-}
-
-/* Content */
-.card .icon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
   position: relative;
   z-index: 1;
 }
 
-.card .icon svg {
-  width: 42px;
-  height: 42px;
-  color: var(--accent-1);
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  transition: transform 0.3s, color 0.3s;
+.card {
+  background: rgba(31, 40, 51, 0.4);
+  /* Poloprůhledné pozadí */
+  padding: 40px 30px;
+  border-radius: 20px;
+  width: 320px;
+  text-align: center;
+  /* Zarovnání na střed jako v Ceníku */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Pružný efekt */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Velmi jemný okraj */
+  backdrop-filter: blur(10px);
+  /* Rozmazání pozadí pod kartou (frosted glass) */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* Jemný stín */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efekt "skleněného" odlesku při přejetí */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: 0.5s;
+}
+
+.card:hover::after {
+  left: 100%;
+}
+
+/* Tyrkysová záře */
+.card:hover {
+  transform: translateY(-15px) scale(1.02);
+  background: rgba(31, 40, 51, 0.6);
+  border-color: rgba(31, 142, 241, 0.3);
+  box-shadow: 0 20px 40px rgba(31, 142, 241, 0.15);
+}
+
+.card .icon {
+  font-size: 3rem;
+  color: #1f8ef1;
+  /* Hero Blue */
+  margin-bottom: 25px;
+  display: inline-flex;
+  /* padding: 15px; - Removed */
+  /* border-radius: 12px; - Removed */
+  background: transparent;
+  /* Removed background */
+  transition: all 0.3s ease;
+}
+
+.card:hover .icon {
+  background: transparent;
+  /* No background on hover */
+  color: #1f8ef1;
+  /* Keep original color or maybe brighter? keeping consistent */
+  transform: scale(1.2) rotateY(180deg);
+  /* Increased scale slightly */
+  filter: drop-shadow(0 0 8px rgba(31, 142, 241, 0.6));
+  /* Glow effect via shadow instead of background */
+  box-shadow: none;
 }
 
 .card h3 {
-  color: var(--accent-1);
-  margin: 15px 0 10px;
-  position: relative;
-  z-index: 1;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #1f8ef1;
+  /* Hero Blue */
+  font-weight: 600;
 }
 
 .card p {
-  color: #ccc;
-  font-size: 0.95em;
+  color: #c5c6c7;
   line-height: 1.6;
+  font-size: 1.05rem;
+  /* Increased text size */
+}
+
+
+/* === Modernizovaná sekce Ceník (WOW efekt) === */
+.pricing {
+  padding: 100px 20px;
+  background-color: #0b0c10;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(102, 252, 241, 0.05) 0%, rgba(11, 12, 16, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.pricing h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
   position: relative;
   z-index: 1;
-}
-
-/* Hover effect */
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(106, 224, 255, 0.2);
-}
-
-.card:hover .icon svg {
-  transform: scale(1.1);
-  color: var(--accent-2);
-}
-
-/* ==========================================================
-   PRICING SECTION
-========================================================== */
-.pricing {
-  background: transparent;
-  padding: 120px 20px;
+  background: linear-gradient(to right, #ffffff, #66fcf1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .pricing-intro {
-  color: #ccc;
-  font-size: 1.1em;
-  margin-bottom: 60px;
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+  color: #c5c6c7;
+  position: relative;
+  z-index: 1;
 }
 
 .pricing-cards {
   display: flex;
   justify-content: center;
+  gap: 30px;
   flex-wrap: wrap;
-  gap: 40px;
-  max-width: 1100px;
-  margin: 60px auto 0;
-  align-items: flex-start;
-}
-
-/* === Individual card === */
-.pricing-card {
-  flex: 1 1 280px;
-  max-width: 300px;
-  min-height: 415px;
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 30px 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 1;
 }
 
-/* Hover effect with a subtle highlight */
+.pricing-card {
+  background: rgba(31, 40, 51, 0.4);
+  padding: 40px 30px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glass effect swipe */
+.pricing-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: 0.5s;
+}
+
+.pricing-card:hover::after {
+  left: 100%;
+}
+
 .pricing-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(106, 224, 255, 0.2);
+  transform: translateY(-15px) scale(1.02);
+  background: rgba(31, 40, 51, 0.6);
+  border-color: rgba(102, 252, 241, 0.3);
+  box-shadow: 0 20px 40px rgba(102, 252, 241, 0.15);
 }
 
-/* Heading */
 .pricing-card h3 {
-  color: var(--accent-1);
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  color: #1f8ef1;
 }
 
 /* Price */
 .pricing-card .price {
-  font-size: 1.4em;
+  font-size: 1.8rem;
+  color: #66fcf1;
   font-weight: 700;
-  color: var(--accent-2);
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
 }
 
-/* Features list */
 .pricing-card ul {
   list-style: none;
+  padding: 0;
   text-align: left;
-  padding-left: 0;
 }
 
 .pricing-card ul li {
-  color: #ccc;
-  margin-bottom: 10px;
-  line-height: 1.5;
-  position: relative;
-  padding-left: 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #c5c6c7;
+  font-size: 0.95rem;
+}
+
+.pricing-card ul li:last-child {
+  border-bottom: none;
 }
 
 .pricing-card ul li::before {
-  content: "\2022";
-  position: absolute;
-  left: 0;
-  color: var(--accent-1);
+  content: "✓";
+  color: #1f8ef1;
+  margin-right: 10px;
+  font-weight: bold;
 }
 
-/* Note under the cards */
 .pricing-note {
   color: #ccc;
   font-size: 1em;
@@ -581,290 +684,256 @@ section p:first-of-type {
   line-height: 1.6;
 }
 
-/* === Responsiveness === */
-@media (max-width: 900px) {
-  .pricing-cards {
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .pricing-card {
-    width: 80%;
-    max-width: 350px;
-  }
+/* === Modernizovaná sekce Workflow (Proces) === */
+.workflow {
+  padding: 100px 20px;
+  background-color: #0b0c10;
+  /* Změna na stejnou černou jako zbytek webu */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Dot texture moved to global ::after */
 
-/* ==========================================================
-   WORKFLOW SECTION (Production process)
-========================================================== */
-.workflow {
-  background: transparent;
-  padding: 120px 20px;
+.workflow h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  color: #fff;
 }
 
 .workflow-intro {
-  color: #ccc;
-  font-size: 1.1em;
-  margin-bottom: 60px;
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+  color: #c5c6c7;
+  position: relative;
+  z-index: 1;
 }
 
-/* === Step layout === */
 .steps {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
-  text-align: center;
   gap: 40px;
-  max-width: 1100px;
-  margin: 60px auto 0;
+  /* Zvětšený rozestup */
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .step {
-  flex: 1 1 280px;
-  max-width: 300px;
-  min-height: 300px;
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 28px 22px 0;
+  flex: 1;
+  min-width: 220px;
+  max-width: 260px;
+  text-align: center;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 30px 20px;
+  /* Zmenšený padding pro kompaktnější vzhled */
+  /* Sjednoceni paddingu s .card */
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: rgba(31, 40, 51, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-/* === Gradient effect === */
-.step::before {
-  content: "";
+.step::after {
+  content: '';
   position: absolute;
-  inset: 0;
-  background: transparent;
-  opacity: 0;
-  transition: opacity 0.4s;
-  z-index: 0;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: 0.5s;
 }
 
-.step:hover::before {
-  opacity: 0.08;
+.step:hover::after {
+  left: 100%;
 }
 
-/* === Content === */
-.step h3 {
-  color: var(--accent-1);
-  margin: 15px 0 10px;
-}
-
-.step p {
-  color: #ccc;
-  font-size: 0.95em;
-  line-height: 1.6;
+.step:hover {
+  transform: translateY(-15px) scale(1.02);
+  background: rgba(31, 40, 51, 0.6);
+  border-color: rgba(31, 142, 241, 0.3);
+  box-shadow: 0 20px 40px rgba(31, 142, 241, 0.15);
 }
 
 .step .icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 3rem;
+  color: #1f8ef1;
+  margin-bottom: 25px;
+  display: inline-flex;
+  /* padding: 15px; - Removed */
+  /* border-radius: 12px; - Removed */
+  background: transparent;
+  border: none;
+  width: auto;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+.step:hover .icon {
+  background: transparent;
+  color: #1f8ef1;
+  transform: scale(1.2) rotateY(180deg);
+  filter: drop-shadow(0 0 8px rgba(31, 142, 241, 0.6));
+  box-shadow: none;
+}
+
+.step h3 {
   margin-bottom: 10px;
+  color: #1f8ef1;
+  font-size: 1.2rem;
 }
 
-.step .icon svg {
-  width: 42px;
-  height: 42px;
-  color: var(--accent-1);
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  transition: transform 0.3s, color 0.3s;
-}
-
-/* === Hover === */
-.step:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(106, 224, 255, 0.2);
-}
-
-.step:hover .icon svg {
-  transform: scale(1.1);
-  color: var(--accent-2);
+.step p {
+  font-size: 1.05rem;
+  /* Increased text size */
+  color: #c5c6c7;
+  line-height: 1.5;
 }
 
 
-/* ==========================================================
-   PORTFOLIO SECTION
-========================================================== */
-.portfolio-grid {
-  margin: 60px auto 0;
-  padding: 0 18px;
-  max-width: 1000px;
-  display: grid;
-  gap: 28px;
-  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-  justify-content: center;
-}
-
-.portfolio-feature {
-  width: 100%;
-  background: linear-gradient(145deg, rgba(31, 142, 241, 0.12), rgba(7, 186, 159, 0.08));
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.55);
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  min-height: 360px;
-}
-
-.feature-media {
+/* === Modernizovaná sekce Portfolio === */
+.portfolio {
+  padding: 100px 20px;
+  background-color: #0b0c10;
+  text-align: center;
   position: relative;
   overflow: hidden;
-  background: #0d1015;
 }
 
-.feature-media img {
+.portfolio-grid {
+  max-width: 1200px;
+  margin: 50px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-card {
+  background: rgba(31, 40, 51, 0.4);
+  padding: 25px;
+  /* Kompaktnější padding */
+  border-radius: 20px;
+  width: 320px;
+  /* Stejná šířka jako u Služeb */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: 0.5s;
+}
+
+.portfolio-card:hover::after {
+  left: 100%;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  background: rgba(31, 40, 51, 0.6);
+  border-color: rgba(31, 142, 241, 0.3);
+  box-shadow: 0 20px 40px rgba(31, 142, 241, 0.15);
+}
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  /* Fixní výška pro obrázky */
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.5s ease, filter 0.5s ease;
-  filter: saturate(1.02);
+  transition: transform 0.6s ease;
 }
 
-.feature-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 10px;
-  padding: 18px 20px;
-  background: linear-gradient(180deg, rgba(4, 6, 10, 0) 0%, rgba(4, 6, 10, 0.75) 100%);
+.portfolio-card:hover .card-image img {
+  transform: scale(1.05);
 }
 
-.feature-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #fff;
+.portfolio-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #66fcf1;
+  /* Cyan like Pricing */
   font-weight: 600;
-  letter-spacing: 0.3px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
 }
 
-.feature-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.feature-tags .tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 7px 12px;
-  border-radius: 999px;
-  background: rgba(31, 142, 241, 0.16);
-  border: 1px solid rgba(31, 142, 241, 0.28);
-  color: #eaf4ff;
-  font-size: 0.85em;
-  letter-spacing: 0.2px;
-}
-
-.feature-content {
-  padding: 26px 28px;
-  background: var(--card-bg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 12px;
-  text-align: left;
+/* Tlačítka s neonovým efektem - sdílené */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 2px solid #66fcf1;
+  color: #66fcf1;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  background: transparent;
   position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 0.95rem;
 }
 
-.feature-content::after {
-  content: "";
+.btn::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(7, 186, 159, 0.12), transparent 38%);
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #66fcf1;
+  z-index: -1;
+  transition: all 0.3s ease;
 }
 
-.feature-meta {
-  color: #a6b3c6;
-  letter-spacing: 0.3px;
-  font-size: 0.95em;
+.btn:hover {
+  color: #0b0c10;
+  box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
 }
 
-.feature-content h3 {
-  font-size: 1.9em;
-  margin: 0;
+.btn:hover::before {
+  width: 100%;
 }
 
-.feature-text {
-  color: #c9d4e3;
-  line-height: 1.7;
-  margin: 0;
-}
 
-.feature-actions {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 6px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
 
-.feature-actions .btn {
-  padding: 12px 26px;
-  background: linear-gradient(120deg, rgba(31, 142, 241, 0.3), rgba(7, 186, 159, 0.3));
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
 
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 9px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e5ecf5;
-  font-size: 0.95em;
-  white-space: nowrap;
-}
 
-.portfolio-feature:hover .feature-media img {
-  transform: scale(1.02);
-  filter: saturate(1.1) brightness(1.02);
-}
-
-@media (max-width: 960px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .portfolio-feature {
-    grid-template-columns: 1fr;
-    margin-top: 30px;
-  }
-
-  .feature-content {
-    padding: 22px;
-    text-align: center;
-    align-items: center;
-  }
-
-  .feature-actions {
-    justify-content: center;
-  }
-}
 
 
 /* ==========================================================
@@ -872,7 +941,9 @@ section p:first-of-type {
 ========================================================== */
 .contact {
   padding: 100px 20px;
-  background: transparent;
+  background-color: #0b0c10;
+  position: relative;
+  overflow: hidden;
 }
 
 .contact-links {
@@ -881,6 +952,8 @@ section p:first-of-type {
   flex-wrap: wrap;
   gap: 25px;
   margin: 40px 0 20px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-link {

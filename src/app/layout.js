@@ -33,6 +33,9 @@ export const metadata = {
   alternates: {
     canonical: 'https://tomasklepac.cz/',
   },
+  verification: {
+    google: 'Fh0smD95mY95X1OpdCeQzRHiJbmsCrCH7vXYE4W8Nrc',
+  },
 };
 
 export default function RootLayout({ children }) {
