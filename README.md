@@ -1,71 +1,60 @@
-# Tomáš Klepač - Personal Website (Next.js)
+# Tomáš Klepač - Personal Portfolio Website
 
-This project is a migration of the original static website to the modern **Next.js** framework.
-It preserves the original design and functionality (1:1) while introducing a modern development environment based on React components.
+A professional portfolio website built with **Next.js**.
+Designed to showcase web development services, recent projects, and contact information with a modern, responsive, and performance-focused approach.
 
 ## 🚀 Getting Started
 
 ### 1. Install Dependencies
-If you are running the project for the first time, install the required packages:
+To set up the project locally, install the required packages:
 ```bash
 npm install
 ```
 
 ### 2. Development Server
-For local development with hot-reload:
+Start the local development server with hot-reload:
 ```bash
 npm run dev
 ```
-The site will run at [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ### 3. Build for Production
-To generate static files for hosting:
+To generate the static files for hosting:
 ```bash
 npm run build
 ```
-The resulting files will be in the **`out`** directory. Upload this directory to your hosting provider (via FTP).
+The output will be generated in the **`out`** directory. This directory contains the complete static website ready for deployment.
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Architecture
 
-The website is built as a standard Next.js application using the "App Router".
+The project uses the **Next.js App Router** structure.
 
-### Main Directories
+### Key Directories
 
-*   **`src/app`**: Contains all page logic.
-    *   **`page.js`**: The main homepage (`index.html`). This is where sections are assembled.
-    *   **`layout.js`**: The site wrapper. Contains `<html>`, `<body>`, and meta tags (SEO).
-    *   **`globals.css`**: Main CSS file (originally `style.css`).
-    *   **`components/`**: Directory containing individual site parts (components).
+*   **`src/app`**: Core application logic.
+    *   **`page.js`**: The main landing page assembling all sections.
+    *   **`layout.js`**: Root layout containing `<html>`, `<body>`, and SEO metadata.
+    *   **`components/`**: Modular UI components (Navbar, Hero, Services, Portfolio, etc.).
+    *   **`globals.css`**: Global styles and theme definitions.
 
-### Components (`src/app/components`)
-Instead of one long file, the site is split into logical parts:
-*   `Navbar.jsx` - Top navigation and mobile menu.
-*   `Hero.jsx` - Intro section with photo.
-*   `About.jsx` - "About Me" section.
-*   `Services.jsx` - "What I Offer" section.
-*   `Pricing.jsx` - Pricing list.
-*   `Workflow.jsx` - Process workflow.
-*   `Portfolio.jsx` - Work showcase.
-*   `Contact.jsx` - Contact form/details.
-*   `Footer.jsx` - Site footer.
-
-### Static Files (`public`)
-Everything publicly accessible:
-*   **`assets/`** - Images, fonts, icons.
-*   `Smluvni_podminky.pdf`
-*   `robots.txt`
-*   `sitemap.xml`
+### Static Assets (`public`)
+Contains all publicly accessible files:
+*   **`assets/`**: Images, fonts, and icons.
+*   **`Smluvni_podminky.pdf`**: Terms and conditions document.
+*   **`robots.txt`** & **`sitemap.xml`**: SEO configuration files.
 
 ---
 
-## 🛠 Technologies
-*   **Next.js 15+** - Framework.
-*   **React** - UI Library.
-*   **CSS Modules / Global CSS** - Styling.
+## 🛠 Tech Stack
+*   **Framework**: Next.js 15+ (App Router)
+*   **UI Library**: React
+*   **Styling**: CSS Modules / Global CSS
+*   **Deployment**: Static Site Generation (SSG) via `output: 'export'`
 
 ---
 
-## 📝 Deployment Notes
-The project is configured with `output: 'export'` (in `next.config.mjs`). This means `npm run build` generates pure HTML/CSS/JS that works on any standard hosting (Apache, Nginx) without needing a Node.js server.
+## 📝 Deployment
+This project is configured for **Static Export**.
+Running `npm run build` produces a static HTML/CSS/JS version of the site in the `out` folder. This folder can be hosted on any standard web server (Apache, Nginx, GitHub Pages) without requiring a Node.js runtime.
