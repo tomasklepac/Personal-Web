@@ -29,13 +29,16 @@ export const metadata = {
     description: 'Tvořím moderní, rychlé a funkční weby pro freelancery a malé firmy.',
     images: ['https://tomasklepac.cz/assets/images/profile.jpg'],
   },
-  themeColor: '#0b0c10',
   alternates: {
     canonical: 'https://tomasklepac.cz/',
   },
   verification: {
     google: 'Fh0smD95mY95X1OpdCeQzRHiJbmsCrCH7vXYE4W8Nrc',
   },
+};
+
+export const viewport = {
+  themeColor: '#0b0c10',
 };
 
 export default function RootLayout({ children }) {
