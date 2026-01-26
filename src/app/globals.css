@@ -220,10 +220,12 @@ section p:first-of-type {
    HERO SECTION
 ========================================================== */
 .hero {
-  height: 100vh;
-  background: #0b0c10 url("/assets/images/hero-desktop.jpg") center/cover no-repeat;
-  background-image: image-set(url("/assets/images/hero-desktop.webp") type("image/webp"),
-      url("/assets/images/hero-desktop.jpg") type("image/jpeg"));
+  min-height: 100vh;
+  /* Fallback */
+  min-height: 100dvh;
+  /* Dynamic height for mobile browsers */
+  background-color: #0b0c10;
+  /* Dark background for particles */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -231,20 +233,28 @@ section p:first-of-type {
   align-items: center;
   text-align: center;
   color: #fff;
+  padding-top: 80px;
+  /* Account for fixed navbar */
 }
 
 .hero-overlay {
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(0px);
+  /* Removed blur to see particles clearly */
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.60);
+  background: rgba(0, 0, 0, 0.4);
+  /* Lighter overlay */
   z-index: 0;
+  pointer-events: none;
+  /* Let clicks pass through overlay */
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
   animation: fadeInHero 1.4s ease-out forwards;
+  pointer-events: auto;
+  /* Enable interaction with buttons */
 }
 
 .hero h1 {
@@ -276,9 +286,7 @@ section p:first-of-type {
 
 @media (max-width: 900px) {
   .hero {
-    background: #0b0c10 url("/assets/images/hero-mobile.jpg") center/cover no-repeat;
-    background-image: image-set(url("/assets/images/hero-mobile.webp") type("image/webp"),
-        url("/assets/images/hero-mobile.jpg") type("image/jpeg"));
+    /* Mobile specific adjustments if needed */
   }
 }
 
@@ -300,43 +308,7 @@ section p:first-of-type {
   box-shadow: 0 0 15px rgba(0, 201, 167, 0.4);
 }
 
-.scroll-down {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 50px;
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  border-radius: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 8px;
-  opacity: 0.8;
-}
-
-.scroll-down span {
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  border-radius: 50%;
-  animation: scrollAnim 2s infinite;
-}
-
-@keyframes scrollAnim {
-
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  50% {
-    transform: translateY(20px);
-    opacity: 0.4;
-  }
-}
+/* Scroll down indicator removed */
 
 
 /* ==========================================================
