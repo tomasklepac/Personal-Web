@@ -4,14 +4,14 @@ import { useCallback } from "react";
 import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim";
 
-export default function ParticlesBackground() {
+export default function ParticlesBackground({ id = "tsparticles" }) {
     const particlesInit = useCallback(async (engine) => {
         await loadSlim(engine);
     }, []);
 
     return (
         <Particles
-            id="tsparticles"
+            id={id}
             init={particlesInit}
             options={{
                 fullScreen: { enable: false }, // Occupy parent container only

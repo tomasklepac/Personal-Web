@@ -5,7 +5,7 @@ import ParticlesBackground from './ParticlesBackground';
 export default function Hero() {
     return (
         <section className="hero">
-            <ParticlesBackground />
+            <ParticlesBackground id="tsparticles-hero" />
             <div className="hero-overlay"></div>
 
             {/* Visual Depth Orbs */}
