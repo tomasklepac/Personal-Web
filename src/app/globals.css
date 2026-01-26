@@ -935,7 +935,7 @@ section p:first-of-type {
 }
 
 .card .icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #1f8ef1;
   /* Hero Blue */
   margin-bottom: 25px;
@@ -1204,7 +1204,7 @@ section p:first-of-type {
 }
 
 .step .icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #1f8ef1;
   margin-bottom: 25px;
   display: inline-flex;
@@ -1710,4 +1710,26 @@ footer {
   mask-image:
     linear-gradient(#0000, #0000),
     conic-gradient(from calc((var(--start) - var(--spread)) * 1deg), #00000000 0deg, #fff, #00000000 calc(var(--spread) * 2deg));
+}
+
+/* ==========================================================
+   MOBILE OPTIMIZATION
+========================================================== */
+@media (max-width: 768px) {
+
+  /* Fix Hero text overlap and layout shifts */
+  .typing-container {
+    min-height: 2.5em;
+    margin-bottom: 15px;
+  }
+
+  .typing-container span {
+    white-space: nowrap !important;
+    font-size: 1.2em !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
 }
