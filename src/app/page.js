@@ -10,6 +10,7 @@ import Workflow from './components/Workflow';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function Home() {
 
@@ -48,6 +49,7 @@ export default function Home() {
         <Contact />
       </main>
 
+      <ScrollToTop />
       <Footer />
     </>
   );
