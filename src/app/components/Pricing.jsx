@@ -3,43 +3,51 @@ export default function Pricing() {
         <section id="pricing" className="pricing fade-in">
             <h2>Ceník</h2>
             <p className="pricing-intro">
-                Každý web dělám na míru. Níže najdeš orientační přehled běžných typů webů.
+                Uvedené ceny jsou orientační. Finální cena se odvíjí od rozsahu, funkcionality a náročnosti projektu.
             </p>
 
             <div className="pricing-cards">
                 {/* Option 1 */}
                 <div className="pricing-card">
-                    <h3>Jednoduchý web</h3>
-                    <p className="price">od 2 000 Kč</p>
+                    <h3>Základní web</h3>
+                    <p className="price">8 000 - 10 000 Kč</p>
                     <ul>
                         <li>1-3 podstránky</li>
-                        <li>Statický obsah bez databáze</li>
-                        <li>Informační web (prezentace, kontakty, nabídka služeb)</li>
-                        <li>Vhodné pro osobní web, malý podnik, portfolio</li>
+                        <li>Statický prezentační web</li>
+                        <li>Responzivní design (mobil / tablet / desktop)</li>
+                        <li>Základní SEO nastavení</li>
+                        <li>Kontaktní formulář</li>
+                        <li>Vhodné pro OSVČ, služby, menší projekty nebo portfolio</li>
+                        <li className="pricing-limitation">Bez databáze, bez administrace</li>
                     </ul>
                 </div>
 
                 {/* Option 2 */}
                 <div className="pricing-card">
                     <h3>Rozšířený web</h3>
-                    <p className="price">od 4 000 Kč</p>
+                    <p className="price">10 000 - 15 000 Kč</p>
                     <ul>
-                        <li>4+ podstránek</li>
-                        <li>Dynamický obsah (např. správa textů, galerií)</li>
-                        <li>Napojení na externí služby (mapy, formuláře)</li>
-                        <li>Pro menší firmy s častějšími aktualizacemi</li>
+                        <li>4 a více podstránek</li>
+                        <li>Částečně dynamický obsah</li>
+                        <li>Možnost správy textů, galerií nebo obsahu</li>
+                        <li>Formuláře, mapy, napojení na externí služby</li>
+                        <li>Lepší struktura webu a UX</li>
+                        <li>Vhodné pro firmy, které web aktivně používají</li>
                     </ul>
                 </div>
 
                 {/* Option 3 */}
                 <div className="pricing-card">
-                    <h3>Webová aplikace / e-shop</h3>
-                    <p className="price">od 7 000 Kč</p>
+                    <h3>Webová aplikace / systém na míru</h3>
+                    <p className="price">15 000 - 20 000 Kč+</p>
                     <ul>
-                        <li>Přihlášení uživatelů a databáze dat</li>
-                        <li>Rezervační či objednávkový systém</li>
-                        <li>Admin rozhraní pro správu dat</li>
-                        <li>Vhodné pro e-shopy nebo interní systémy</li>
+                        <li>Webová aplikace na míru</li>
+                        <li>Databáze a práce s daty</li>
+                        <li>Přihlášení uživatelů a administrační rozhraní</li>
+                        <li>Rezervační nebo objednávkový systém</li>
+                        <li>Interní nástroje nebo jednoduché systémy</li>
+                        <li>MVP řešení pro konkrétní potřebu klienta</li>
+                        <li className="pricing-limitation">Nejde o plnohodnotný e-shop</li>
                     </ul>
                 </div>
             </div>
