@@ -967,11 +967,14 @@ section p:first-of-type {
   font-weight: 600;
 }
 
-.card p {
+.services .card p,
+.pricing .pricing-card p {
   color: #c5c6c7;
+  line-height: 1.6;
   line-height: 1.6;
   font-size: 1.05rem;
   /* Increased text size */
+  margin-bottom: 0;
 }
 
 
@@ -1222,11 +1225,13 @@ section p:first-of-type {
   font-size: 1.2rem;
 }
 
-.step p {
+.workflow .step p {
   font-size: 1.05rem;
+  /* Increased text size */
   /* Increased text size */
   color: #c5c6c7;
   line-height: 1.5;
+  margin-bottom: 0;
 }
 
 
