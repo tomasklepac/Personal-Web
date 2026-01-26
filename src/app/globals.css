@@ -394,7 +394,11 @@ section p:first-of-type {
   margin-bottom: 20px;
   color: #ccc;
   line-height: 1.7;
-  font-size: 1.05em;
+  font-size: 1.1em;
+}
+
+.about-text p:first-of-type {
+  margin-bottom: 20px;
 }
 
 .about-text strong {
