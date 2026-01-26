@@ -1069,13 +1069,13 @@ section p:first-of-type {
 
 .pricing-card h3 {
   margin-bottom: 15px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: #1f8ef1;
 }
 
 /* Price */
 .pricing-card .price {
-  font-size: 1.8rem;
+  font-size: 1.7rem !important;
   color: #66fcf1;
   font-weight: 700;
   margin-bottom: 20px;
@@ -1173,6 +1173,12 @@ section p:first-of-type {
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  min-height: 280px;
+  /* Ensure vertical aspect ratio */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .step::after {
