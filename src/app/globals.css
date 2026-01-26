@@ -284,11 +284,7 @@ section p:first-of-type {
   }
 }
 
-@media (max-width: 900px) {
-  .hero {
-    /* Mobile specific adjustments if needed */
-  }
-}
+
 
 .btn {
   display: inline-block;
