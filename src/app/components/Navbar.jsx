@@ -1,85 +1,86 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
+import HamburgerMenu from './HamburgerMenu';
 
 export default function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 50);
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-    const closeMenu = () => setIsMenuOpen(false);
-
-    // Sync with body scroll lock if needed, or aria attributes
-    useEffect(() => {
-        // Logic from original main.js to handle aria attributes can be simplified here or added if strictly needed
-    }, [isMenuOpen]);
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+        // Prevent scrolling when menu is open
+        if (!isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    };
 
     return (
-        <header>
-            <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-                <div className="logo">
-                    <picture>
-                        <source srcSet="/assets/images/logo_clear.webp" type="image/webp" />
-                        <source srcSet="/assets/images/logo_clear-256.png" type="image/png" />
-                        <Image
-                            src="/assets/images/logo_clear-256.png"
-                            alt="Tomáš Klepač - logo"
-                            width={42}
-                            height={42}
-                            loading="lazy"
-                        />
-                    </picture>
-                </div>
+        <>
+            <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+                <a href="#" className="logo">
+                    <img src="/assets/images/logo_clear.png" alt="Logo" style={{ height: '42px', width: 'auto', objectFit: 'contain' }} />
+                </a>
 
-                {/* Checkbox hack replaced by React state */}
-                <input
-                    type="checkbox"
-                    id="menu-toggle"
-                    aria-hidden="true"
-                    checked={isMenuOpen}
-                    onChange={toggleMenu}
-                />
-                <label
-                    htmlFor="menu-toggle"
-                    className="menu-icon"
-                    role="button"
-                    aria-label={isMenuOpen ? "Zavřít navigaci" : "Otevřít navigaci"}
-                    aria-controls="primary-nav"
-                    aria-expanded={isMenuOpen}
-                    tabIndex="0"
-                    onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            toggleMenu();
-                        }
-                    }}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-
-                {/* Navigation links */}
-                <ul className="nav-links" id="primary-nav" aria-hidden={!isMenuOpen && typeof window !== 'undefined' && window.innerWidth < 900}>
-                    <li><a href="#about" onClick={closeMenu}>O mně</a></li>
-                    <li><a href="#services" onClick={closeMenu}>Služby</a></li>
-                    <li><a href="#pricing" onClick={closeMenu}>Ceník</a></li>
-                    <li><a href="#workflow" onClick={closeMenu}>Proces</a></li>
-                    <li><a href="#portfolio" onClick={closeMenu}>Portfolio</a></li>
-                    <li><a href="#contact" onClick={closeMenu}>Kontakt</a></li>
+                {/* Desktop Navigation */}
+                <ul className="nav-links desktop-only">
+                    <li><a href="#about">O mně</a></li>
+                    <li><a href="#services">Služby</a></li>
+                    <li><a href="#pricing">Ceník</a></li>
+                    <li><a href="#workflow">Proces</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact" className="contact-link">Kontakt</a></li>
                 </ul>
+
+                {/* Mobile Hamburger Button */}
+                <button
+                    className="hamburger-btn mobile-only"
+                    onClick={toggleMenu}
+                    aria-label="Menu"
+                    aria-expanded={isOpen}
+                >
+                    <motion.div
+                        animate={isOpen ? "open" : "closed"}
+                        className="hamburger-icon"
+                    >
+                        <motion.span
+                            variants={{
+                                closed: { rotate: 0, y: 0 },
+                                open: { rotate: 45, y: 8 }
+                            }}
+                            className="line line-1"
+                        />
+                        <motion.span
+                            variants={{
+                                closed: { opacity: 1 },
+                                open: { opacity: 0 }
+                            }}
+                            className="line line-2"
+                        />
+                        <motion.span
+                            variants={{
+                                closed: { rotate: 0, y: 0 },
+                                open: { rotate: -45, y: -8 }
+                            }}
+                            className="line line-3"
+                        />
+                    </motion.div>
+                </button>
             </nav>
-        </header>
+
+            <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
+        </>
     );
 }
