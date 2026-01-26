@@ -194,10 +194,17 @@ section p:first-of-type {
   list-style: none;
   display: flex;
   gap: 30px;
+  align-items: center;
 }
 
 .nav-links.desktop-only {
   display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
 }
 
 .hamburger-btn.mobile-only {
@@ -208,10 +215,30 @@ section p:first-of-type {
   color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  padding: 8px 0;
 }
 
 .nav-links a:hover {
   color: #b47fff;
+}
+
+/* Remove button styling from contact link in navbar */
+.nav-links .contact-link {
+  background: none;
+  padding: 8px 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: inherit;
+}
+
+.nav-links .contact-link:hover {
+  background: none;
+  color: #b47fff;
+  transform: none;
+  box-shadow: none;
 }
 
 .nav-links a:focus-visible,
