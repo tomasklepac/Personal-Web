@@ -63,6 +63,11 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Preload critical fonts */}
+        <link rel="preload" href="/assets/fonts/poppins-latin-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/assets/fonts/poppins-latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/assets/fonts/poppins-latin-ext-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/assets/fonts/poppins-latin-ext-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         {/* Favicons */}
         <link rel="icon" href="/assets/icons/logo-32x32.ico" type="image/x-icon" />
         <link rel="icon" sizes="16x16" href="/assets/icons/logo-16x16.ico" />

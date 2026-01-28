@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import HamburgerMenu from './HamburgerMenu';
 
 export default function Navbar() {
@@ -31,7 +32,14 @@ export default function Navbar() {
         <>
             <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
                 <a href="#" className="logo">
-                    <img src="/assets/images/logo_clear.png" alt="Logo" style={{ height: '42px', width: 'auto', objectFit: 'contain' }} />
+                    <Image
+                        src="/assets/images/logo_clear.webp"
+                        alt="Tomáš Klepač - Web Developer Logo"
+                        width={42}
+                        height={42}
+                        priority
+                        style={{ height: '42px', width: 'auto', objectFit: 'contain' }}
+                    />
                 </a>
 
                 {/* Desktop Navigation */}

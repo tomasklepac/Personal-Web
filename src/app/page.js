@@ -1,16 +1,33 @@
 'use client';
 
 import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Services from './components/Services';
-import Pricing from './components/Pricing';
-import Workflow from './components/Workflow';
-import Portfolio from './components/Portfolio';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
+
+// Lazy load below-the-fold components for better performance
+const Services = dynamic(() => import('./components/Services'), {
+  loading: () => null,
+});
+const Pricing = dynamic(() => import('./components/Pricing'), {
+  loading: () => null,
+});
+const Workflow = dynamic(() => import('./components/Workflow'), {
+  loading: () => null,
+});
+const Portfolio = dynamic(() => import('./components/Portfolio'), {
+  loading: () => null,
+});
+const Contact = dynamic(() => import('./components/Contact'), {
+  loading: () => null,
+});
+const Footer = dynamic(() => import('./components/Footer'), {
+  loading: () => null,
+});
+const ScrollToTop = dynamic(() => import('./components/ScrollToTop'), {
+  loading: () => null,
+});
 
 export default function Home() {
 
