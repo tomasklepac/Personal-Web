@@ -1248,83 +1248,146 @@ section p:first-of-type {
 .portfolio-grid {
   max-width: 1200px;
   margin: 50px auto 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
   position: relative;
   z-index: 1;
+  padding: 0 20px;
 }
 
 .portfolio-card {
-  background: rgba(31, 40, 51, 0.4);
-  padding: 25px;
-  /* Kompaktnější padding */
+  position: relative;
   border-radius: 20px;
-  width: 320px;
-  /* Stejná šířka jako u Služeb */
+  overflow: hidden;
+  height: 300px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(31, 142, 241, 0.2);
+  border-color: rgba(102, 252, 241, 0.4);
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.portfolio-card:hover .portfolio-image img {
+  transform: scale(1.1);
+}
+
+/* Gradient Overlay - always visible but subtle, darker on hover */
+.portfolio-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 12, 16, 0.95), rgba(11, 12, 16, 0.3));
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.portfolio-card:hover::after {
+  opacity: 0.6;
+  /* Lighten overlay on hover to see image better */
+}
+
+/* Content Container */
+.portfolio-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  z-index: 2;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
 }
 
-.portfolio-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-  transition: 0.5s;
+.portfolio-card:hover .portfolio-content {
+  transform: translateY(0);
 }
 
-.portfolio-card:hover::after {
-  left: 100%;
+.portfolio-content h3 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transform: translateY(0);
+  transition: transform 0.5s ease;
 }
 
-.portfolio-card:hover {
-  transform: translateY(-15px) scale(1.02);
-  background: rgba(31, 40, 51, 0.6);
-  border-color: rgba(31, 142, 241, 0.3);
-  box-shadow: 0 20px 40px rgba(31, 142, 241, 0.15);
-}
-
-.card-image {
-  width: 100%;
-  height: 180px;
-  /* Fixní výška pro obrázky */
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.portfolio-card:hover .card-image img {
-  transform: scale(1.05);
-}
-
-.portfolio-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
+.portfolio-card:hover .portfolio-content h3 {
+  transform: translateY(-5px);
   color: #66fcf1;
-  /* Cyan like Pricing */
+}
+
+.portfolio-content .btn {
+  margin-top: 15px;
+  background: rgba(102, 252, 241, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(102, 252, 241, 0.5);
+  padding: 10px 25px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease 0.1s;
+  /* Delay for button */
+  border-radius: 30px;
+  color: #66fcf1;
+  text-decoration: none;
   font-weight: 600;
-  text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+  display: inline-block;
+}
+
+.portfolio-card:hover .portfolio-content .btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-content .btn:hover {
+  background: rgba(102, 252, 241, 0.9);
+  color: #0b0c10;
+  box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .portfolio-content {
+    transform: translateY(0);
+    /* Always visible on mobile */
+    backdrop-filter: blur(5px);
+    /* Add blur for readability */
+    background: rgba(11, 12, 16, 0.6);
+  }
+
+  .portfolio-content .btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Tlačítka s neonovým efektem - sdílené */
