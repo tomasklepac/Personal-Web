@@ -69,17 +69,17 @@ export default function RootLayout({ children }) {
         <link rel="preload" href="/assets/fonts/poppins-latin-ext-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/assets/fonts/poppins-latin-ext-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         {/* Favicons */}
-        <link rel="icon" href="/assets/icons/logo-32x32.ico" type="image/x-icon" />
-        <link rel="icon" sizes="16x16" href="/assets/icons/logo-16x16.ico" />
-        <link rel="icon" sizes="24x24" href="/assets/icons/logo-24x24.ico" />
-        <link rel="icon" sizes="32x32" href="/assets/icons/logo-32x32.ico" />
-        <link rel="icon" sizes="48x48" href="/assets/icons/logo-48x48.ico" />
-        <link rel="icon" sizes="64x64" href="/assets/icons/logo-64x64.ico" />
-        <link rel="icon" sizes="96x96" href="/assets/icons/logo96x96.ico" />
-        <link rel="icon" sizes="128x128" href="/assets/icons/logo-128x128.ico" />
-        <link rel="icon" sizes="256x256" href="/assets/icons/logo-256x256.ico" />
-        <link rel="icon" sizes="512x512" href="/assets/icons/logo-512x512.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/logo-256x256.ico" />
+        <link rel="icon" href="/assets/images/logo_clear.png" type="image/png" />
+        <link rel="icon" sizes="16x16" href="/assets/images/logo_clear.png" />
+        <link rel="icon" sizes="24x24" href="/assets/images/logo_clear.png" />
+        <link rel="icon" sizes="32x32" href="/assets/images/logo_clear.png" />
+        <link rel="icon" sizes="48x48" href="/assets/images/logo_cerne.png" />
+        <link rel="icon" sizes="64x64" href="/assets/images/logo_cerne.png" />
+        <link rel="icon" sizes="96x96" href="/assets/images/logo_cerne.png" />
+        <link rel="icon" sizes="128x128" href="/assets/images/logo_cerne.png" />
+        <link rel="icon" sizes="256x256" href="/assets/images/logo_cerne.png" />
+        <link rel="icon" sizes="512x512" href="/assets/images/logo_cerne.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo_cerne.png" />
         <link rel="mask-icon" href="/assets/icons/mask-icon.svg" color="#1f8ef1" />
         <link rel="manifest" href="/assets/icons/manifest.webmanifest" />
       </head>
