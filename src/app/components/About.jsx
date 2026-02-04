@@ -21,17 +21,17 @@ export default function About() {
 
                 {/* Developer photo */}
                 <div className="about-photo">
-                    <picture>
-                        <source srcSet="/assets/images/profile.webp" type="image/webp" />
-                        <source srcSet="/assets/images/profile-900.jpg" type="image/jpeg" />
+                    <div className="profile-image-container">
                         <Image
-                            src="/assets/images/profile-900.jpg"
+                            src="/assets/images/profile-300.webp"
                             alt="Tomáš Klepač - Web Developer"
-                            loading="lazy"
-                            width={300}
-                            height={300}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 300px"
+                            style={{ objectFit: 'cover' }}
+                            priority
+                            className="profile-image"
                         />
-                    </picture>
+                    </div>
                 </div>
             </div>
         </section>

@@ -59,7 +59,7 @@ export default function Navbar() {
                     aria-label="Menu"
                     aria-expanded={isOpen}
                 >
-                    <motion.div
+                    <motion.span
                         animate={isOpen ? "open" : "closed"}
                         className="hamburger-icon"
                     >
@@ -84,7 +84,7 @@ export default function Navbar() {
                             }}
                             className="line line-3"
                         />
-                    </motion.div>
+                    </motion.span>
                 </button>
             </nav>
 

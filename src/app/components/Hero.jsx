@@ -13,7 +13,7 @@ export default function Hero() {
             <div className="orb orb-2"></div>
 
             <div className="hero-content">
-                <h1>Ahoj, jsem <span className="highlight-text">Tomáš Klepač</span></h1>
+                <h1>Web Developer<br /> <span className="highlight-text">Tomáš Klepač</span></h1>
 
                 <div className="typing-container">
                     <TypeAnimation

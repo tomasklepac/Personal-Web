@@ -69,17 +69,13 @@ export default function RootLayout({ children }) {
         <link rel="preload" href="/assets/fonts/poppins-latin-ext-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/assets/fonts/poppins-latin-ext-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         {/* Favicons */}
-        <link rel="icon" href="/assets/images/logo_clear.png" type="image/png" />
-        <link rel="icon" sizes="16x16" href="/assets/images/logo_clear.png" />
-        <link rel="icon" sizes="24x24" href="/assets/images/logo_clear.png" />
-        <link rel="icon" sizes="32x32" href="/assets/images/logo_clear.png" />
-        <link rel="icon" sizes="48x48" href="/assets/images/logo_cerne.png" />
-        <link rel="icon" sizes="64x64" href="/assets/images/logo_cerne.png" />
-        <link rel="icon" sizes="96x96" href="/assets/images/logo_cerne.png" />
-        <link rel="icon" sizes="128x128" href="/assets/images/logo_cerne.png" />
-        <link rel="icon" sizes="256x256" href="/assets/images/logo_cerne.png" />
-        <link rel="icon" sizes="512x512" href="/assets/images/logo_cerne.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo_cerne.png" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" sizes="48x48" href="/favicon-48x48.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png" />
+        <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png" />
         <link rel="mask-icon" href="/assets/icons/mask-icon.svg" color="#1f8ef1" />
         <link rel="manifest" href="/assets/icons/manifest.webmanifest" />
       </head>
