@@ -38,6 +38,23 @@ export default function Portfolio() {
                         <a href="https://sumava-apartmany.cz/" target="_blank" className="btn">Přejít na stránku</a>
                     </div>
                 </div>
+
+                {/* Project 3 */}
+                <div className="portfolio-card">
+                    <div className="portfolio-image">
+                        <Image
+                            src="/assets/images/cestujsbobikem.png"
+                            alt="Cestuj s Bobíkem"
+                            width={600}
+                            height={400}
+                            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                        />
+                    </div>
+                    <div className="portfolio-content">
+                        <h3>Cestuj s Bobíkem</h3>
+                        <a href="https://cestujsbobikem.cz" target="_blank" className="btn">Přejít na stránku</a>
+                    </div>
+                </div>
             </div>
         </section>
     );
