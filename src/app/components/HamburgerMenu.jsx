@@ -1,27 +1,24 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import ParticlesBackground from './ParticlesBackground';
 import { useState } from 'react';
 
 export default function HamburgerMenu({ isOpen, toggleMenu }) {
-    // Defines the circular reveal animation
     const menuVariants = {
         closed: {
-            clipPath: "circle(0px at calc(100% - 45px) 45px)",
+            opacity: 0,
+            y: -12,
             transition: {
-                type: "spring",
-                stiffness: 400,
-                damping: 40,
-                delay: 0.2 // Wait for items to fade out
+                duration: 0.2,
+                ease: 'easeOut'
             }
         },
         open: {
-            clipPath: "circle(3000px at calc(100% - 45px) 45px)",
+            opacity: 1,
+            y: 0,
             transition: {
-                type: "spring",
-                stiffness: 20,
-                restDelta: 2
+                duration: 0.25,
+                ease: 'easeOut'
             }
         }
     };
@@ -63,12 +60,9 @@ export default function HamburgerMenu({ isOpen, toggleMenu }) {
             initial="closed"
             animate={isOpen ? "open" : "closed"}
             variants={menuVariants}
-            style={{ pointerEvents: isOpen ? "auto" : "none" }} // Prevent clicks when closed
+            style={{ pointerEvents: isOpen ? "auto" : "none" }}
         >
-            {/* Background Layer with Particles */}
-            <div style={{ position: 'absolute', inset: 0, opacity: 0.3, zIndex: 0 }}>
-                <ParticlesBackground id="tsparticles-menu" />
-            </div>
+            <div className="mobile-menu-bg" aria-hidden="true" />
 
             <nav className="mobile-nav" style={{ position: 'relative', zIndex: 1 }}>
                 <motion.ul

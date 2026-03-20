@@ -18,14 +18,24 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-        // Prevent scrolling when menu is open
-        if (!isOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
+    useEffect(() => {
+        const { body, documentElement } = document;
+        const previousBodyOverflow = body.style.overflow;
+        const previousHtmlOverflow = documentElement.style.overflow;
+
+        if (isOpen) {
+            body.style.overflow = 'hidden';
+            documentElement.style.overflow = 'hidden';
         }
+
+        return () => {
+            body.style.overflow = previousBodyOverflow;
+            documentElement.style.overflow = previousHtmlOverflow;
+        };
+    }, [isOpen]);
+
+    const toggleMenu = () => {
+        setIsOpen((prev) => !prev);
     };
 
     return (
