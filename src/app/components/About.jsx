@@ -12,11 +12,17 @@ export default function About() {
                         ale i fungovaly rychle a intuitivně.
                     </p>
                     <p>
-                        Jsem student <strong>počítačových věd na Fakultě aplikovaných věd Západočeské
-                            univerzity</strong>,
-                        kde se zaměřuji na programování a vývoj aplikací.
+                        Vystudoval jsem <strong>počítačové vědy na Fakultě aplikovaných věd Západočeské
+                            univerzity</strong> a aktuálně pokračuji v navazujícím studiu se zaměřením na
+                        <strong> zpracování přirozeného jazyka</strong>.
                         Nejvíc se učím praxí - tvorbou vlastních projektů od malých webů po větší aplikace.
                     </p>
+
+                    <div className="skill-tags">
+                        {['React', 'Next.js', 'JavaScript', 'TypeScript', 'PHP', 'MySQL', 'Python', 'CSS', 'Git'].map(skill => (
+                            <span key={skill} className="skill-tag">{skill}</span>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Developer photo */}

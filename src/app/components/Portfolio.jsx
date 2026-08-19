@@ -18,6 +18,11 @@ export default function Portfolio() {
                     </div>
                     <div className="portfolio-content">
                         <h3>Re-Move Harmony</h3>
+                        <div className="portfolio-tags">
+                            <span className="portfolio-tag">Next.js</span>
+                            <span className="portfolio-tag">React</span>
+                            <span className="portfolio-tag">CSS</span>
+                        </div>
                         <a href="https://re-moveharmony.cz" target="_blank" className="btn">Přejít na stránku</a>
                     </div>
                 </div>
@@ -35,6 +40,11 @@ export default function Portfolio() {
                     </div>
                     <div className="portfolio-content">
                         <h3>Apartmány Šumava</h3>
+                        <div className="portfolio-tags">
+                            <span className="portfolio-tag">Next.js</span>
+                            <span className="portfolio-tag">React</span>
+                            <span className="portfolio-tag">CSS</span>
+                        </div>
                         <a href="https://sumava-apartmany.cz/" target="_blank" className="btn">Přejít na stránku</a>
                     </div>
                 </div>
@@ -52,6 +62,11 @@ export default function Portfolio() {
                     </div>
                     <div className="portfolio-content">
                         <h3>Cestuj s Bobíkem</h3>
+                        <div className="portfolio-tags">
+                            <span className="portfolio-tag">Next.js</span>
+                            <span className="portfolio-tag">React</span>
+                            <span className="portfolio-tag">CSS</span>
+                        </div>
                         <a href="https://cestujsbobikem.cz" target="_blank" className="btn">Přejít na stránku</a>
                     </div>
                 </div>

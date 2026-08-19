@@ -23,7 +23,8 @@ export default function Pricing() {
                 </div>
 
                 {/* Option 2 */}
-                <div className="pricing-card">
+                <div className="pricing-card pricing-card--featured">
+                    <span className="pricing-badge">Nejpopulárnější</span>
                     <h3>Rozšířený web</h3>
                     <p className="price">10 000 - 15 000 Kč</p>
                     <ul>

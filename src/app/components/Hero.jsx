@@ -13,7 +13,7 @@ export default function Hero() {
             <div className="orb orb-2"></div>
 
             <div className="hero-content">
-                <h1>Web Developer<br /> <span className="highlight-text">Tomáš Klepač</span></h1>
+                <h1>Web Developer<br /> <span className="highlight-text">Bc. Tomáš Klepač</span></h1>
 
                 <div className="typing-container">
                     <TypeAnimation
@@ -46,7 +46,7 @@ export default function Hero() {
                     <a href="https://linkedin.com/in/tomasklepac" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <FaLinkedin />
                     </a>
-                    <a href="mailto:email@example.com" aria-label="Email">
+                    <a href="mailto:info@tomasklepac.cz" aria-label="Email">
                         <FaEnvelope />
                     </a>
                 </div>

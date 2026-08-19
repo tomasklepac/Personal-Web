@@ -6,6 +6,7 @@ export default function Workflow() {
 
             <div className="steps">
                 <div className="step">
+                    <span className="step-number">01</span>
                     <div className="icon" aria-hidden="true">
                         {/* MessageSquareText */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none"
@@ -20,6 +21,7 @@ export default function Workflow() {
                 </div>
 
                 <div className="step">
+                    <span className="step-number">02</span>
                     <div className="icon" aria-hidden="true">
                         {/* PencilRuler */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none"
@@ -35,6 +37,7 @@ export default function Workflow() {
                 </div>
 
                 <div className="step">
+                    <span className="step-number">03</span>
                     <div className="icon" aria-hidden="true">
                         {/* Code2 */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none"
@@ -49,6 +52,7 @@ export default function Workflow() {
                 </div>
 
                 <div className="step">
+                    <span className="step-number">04</span>
                     <div className="icon" aria-hidden="true">
                         {/* Rocket */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none"
