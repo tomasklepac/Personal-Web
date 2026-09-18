@@ -1,4 +1,28 @@
 import Image from 'next/image';
+import {
+    SiReact,
+    SiNextdotjs,
+    SiJavascript,
+    SiTypescript,
+    SiPhp,
+    SiMysql,
+    SiPython,
+    SiCss3,
+    SiGit,
+} from 'react-icons/si';
+
+// Official brand colors of each technology
+const skills = [
+    { name: 'React', Icon: SiReact, color: '#61DAFB' },
+    { name: 'Next.js', Icon: SiNextdotjs, color: '#FFFFFF' },
+    { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E' },
+    { name: 'TypeScript', Icon: SiTypescript, color: '#3178C6' },
+    { name: 'PHP', Icon: SiPhp, color: '#777BB4' },
+    { name: 'MySQL', Icon: SiMysql, color: '#4479A1' },
+    { name: 'Python', Icon: SiPython, color: '#3776AB' },
+    { name: 'CSS', Icon: SiCss3, color: '#1572B6' },
+    { name: 'Git', Icon: SiGit, color: '#F05032' },
+];
 
 export default function About() {
     return (
@@ -19,8 +43,17 @@ export default function About() {
                     </p>
 
                     <div className="skill-tags">
-                        {['React', 'Next.js', 'JavaScript', 'TypeScript', 'PHP', 'MySQL', 'Python', 'CSS', 'Git'].map(skill => (
-                            <span key={skill} className="skill-tag">{skill}</span>
+                        {skills.map(({ name, Icon, color }) => (
+                            <span
+                                key={name}
+                                className="skill-icon"
+                                style={{ color }}
+                                role="img"
+                                aria-label={name}
+                                title={name}
+                            >
+                                <Icon aria-hidden="true" />
+                            </span>
                         ))}
                     </div>
                 </div>
